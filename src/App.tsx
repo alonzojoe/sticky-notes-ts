@@ -1,8 +1,13 @@
+import StickyNote from "./components/StickyNote";
+
 function App() {
   return (
-    <>
-      <h1>Starting Project :)</h1>
-    </>
+    <main>
+      <StickyNote
+        title="My Note"
+        description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum dolor sit est possimus eaque iusto, veritatis consectetur nam "
+      />
+    </main>
   );
 }
 
