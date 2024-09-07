@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 
-const NewNote = ({ onAddNote }: { onAddNote: () => void }) => {
+const NewNote = ({
+  onAddNote,
+}: {
+  onAddNote: (title: string, number: string) => void;
+}) => {
   const titleRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLInputElement>(null);
 
