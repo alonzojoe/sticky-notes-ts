@@ -29,11 +29,13 @@ function App() {
         <h1>Your Sticky Notes</h1>
       </Header>
       <button onClick={handleFormSubmit}>Add Note</button>
-      <pre>{JSON.stringify(notes)}</pre>
-      <StickyNote
-        title="My Note"
-        description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum dolor sit est possimus eaque iusto, veritatis consectetur nam "
-      />
+      <ul>
+        {notes.map((note) => (
+          <li key={note.id}>
+            <StickyNote title={note.title} description={note.description} />
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
