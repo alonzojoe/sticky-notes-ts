@@ -1,9 +1,11 @@
-import React, { type PropsWithChildren } from "react";
+import React from "react";
 
 type StickyNoteProps = {
+  id: number;
   title: string;
   description: string;
   children?: React.ReactNode;
+  onDelete: (id: number) => void;
 };
 
 //import { type PropsWithChildren } from "react";
@@ -12,14 +14,14 @@ type StickyNoteProps = {
 //   description: string;
 // }>;
 
-const StickyNote = ({ title, description }: StickyNoteProps) => {
+const StickyNote = ({ id, title, description, onDelete }: StickyNoteProps) => {
   return (
     <article>
       <div>
         <h2>{title}</h2>
         <p>{description}</p>
       </div>
-      <button>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </article>
   );
 };

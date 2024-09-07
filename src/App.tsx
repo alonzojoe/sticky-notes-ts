@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-import StickyNote from "./components/StickyNote";
 import Header from "./components/Header";
+import StickyNoteList from "./components/SticktNoteList";
 import StickyNoteImg from "./assets/sticky.png";
-
-type Note = {
-  id: number;
-  title: string;
-  description: string;
-};
+import { Note } from "./lib/types";
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -23,19 +18,18 @@ function App() {
     });
   };
 
+  const handleDeleteNote = (id: number) => {
+    alert(id);
+    setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
+  };
+
   return (
     <main>
       <Header image={{ src: StickyNoteImg, alt: "A list of notes" }}>
         <h1>Your Sticky Notes</h1>
       </Header>
       <button onClick={handleFormSubmit}>Add Note</button>
-      <ul>
-        {notes.map((note) => (
-          <li key={note.id}>
-            <StickyNote title={note.title} description={note.description} />
-          </li>
-        ))}
-      </ul>
+      <StickyNoteList notes={notes} onDeleteNote={handleDeleteNote} />
     </main>
   );
 }
