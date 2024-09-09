@@ -28,7 +28,7 @@ function App() {
       <Header image={{ src: StickyNoteImg, alt: "A list of notes" }}>
         <h1>Your Sticky Notes</h1>
       </Header>
-      <NewNote setNotes={setNotes} onAddNote={handleAddNote} />
+      <NewNote onAddNote={handleAddNote} />
       <StickyNoteList notes={notes} onDeleteNote={handleDeleteNote} />
     </main>
   );
