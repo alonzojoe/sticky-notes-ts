@@ -9,6 +9,7 @@ function App() {
   const [notes, setNotes] = useState<Note[]>([]);
 
   const handleAddNote = (title: string, description: string) => {
+    if (notes.length >= 4) return;
     setNotes((prevNotes) => {
       const newNote = {
         id: Date.now(),

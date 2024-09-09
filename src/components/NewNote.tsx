@@ -18,8 +18,7 @@ const NewNote = ({
 
     onAddNote(enteredTitle, enteredDescription);
 
-    titleRef.current!.value = null;
-    descriptionRef.current!.value = null;
+    e.currentTarget.reset();
   };
 
   return (
